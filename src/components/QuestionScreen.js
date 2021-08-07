@@ -13,6 +13,7 @@ function QuestionScreen() {
             <div
                 key={data.id}>
                 <h2>Nivel {data.level}</h2>
+                <h3>Elige la palabra correcta</h3>
                 <img src={data.quetions[posQuetions].img} alt="img-main"/>
                 <Replys 
                     words={data.quetions[posQuetions].words}

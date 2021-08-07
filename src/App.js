@@ -3,9 +3,9 @@ import QuestionScreen from './components/QuestionScreen'
 
 function App() {
   return (
-    <div>
+    <main>
       <QuestionScreen/>
-    </div>
+    </main>
   )
 }
 

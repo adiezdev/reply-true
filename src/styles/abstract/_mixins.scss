@@ -1,0 +1,19 @@
+/*
+Display simle
+*/
+@mixin flex-simple-gap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+} 
+/*
+Main felx
+*/
+@mixin flex-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;   
+}
