@@ -39,7 +39,7 @@ export const selectTrueWord = [
             },
             {
                 id: 'w3rd03',
-                img: 'https://img.icons8.com/color/240/000000/car--v2.png',
+                img: 'https://img.icons8.com/color/240/000000/sphere.png',
                 words: [
                 {
                     word: 'Prela',

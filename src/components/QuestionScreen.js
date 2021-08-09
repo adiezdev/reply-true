@@ -4,8 +4,10 @@ import Replys from './Replys';
 import '../styles/styles.scss';
 
 function QuestionScreen() {
-    const [posQuetions, setPosQuestion] = useState(0)
+    const [posQuetions, setPosQuestion] = useState(Math.floor(Math.random()*3)|| 0) 
     const [level, setLevel] = useState(0)
+    
+    console.log(posQuetions);
     
     const data = selectTrueWord[level]
     return (

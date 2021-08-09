@@ -1,0 +1,24 @@
+.reply button{
+    font: bold 17px/20px $font-base;
+    
+    border: none;
+    border-radius: 10px;
+
+    padding-inline-start: 70px;
+    padding-inline-end: 70px;
+    padding-block-start: 15px;
+    padding-block-end: 15px;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    &.true{
+        color: $white;
+        background-color: $true-green;
+    }
+    &.false{
+        color: $white;
+        background-color: $false-red;
+    }
+}
