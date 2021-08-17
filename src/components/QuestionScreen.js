@@ -1,24 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { selectTrueWord } from '../data/select-true-word';
 import Replys from './Replys';
 import '../styles/styles.scss';
+import { checkReducer } from '../reducers/checkReducer';
+
 
 function QuestionScreen() {
-    const [posQuetions, setPosQuestion] = useState(Math.floor(Math.random()*3)|| 0) 
-    const [level, setLevel] = useState(0)
+
+    const [posQuetions, setPosQuetions] = useState(0) 
+
+    const [word, setWord] = useState(selectTrueWord[posQuetions].words)
+
+    const init = () =>{
+        return word || []
+    }
+
+    const [true_word, dispatch] = useReducer(checkReducer, [], init)
+
+
+    useEffect(() => {
+        console.log(true_word);
+        //setWord(true_word)
+        setWord(selectTrueWord[posQuetions].words)
+    }, [true_word,posQuetions])
     
-    console.log(posQuetions);
-    
-    const data = selectTrueWord[level]
+
+    const handleCheck = (wordId) =>{
+        const action = {
+            type: 'toggle',
+            payload: wordId,
+        }
+        dispatch(action)
+        setPosQuetions(+1)
+    }
     return (
         <div className="main-quest">
-            <div
-                key={data.id}>
-                <h2>Nivel {data.level}</h2>
+            <div>
                 <h3>Elige la palabra correcta</h3>
-                <img src={data.quetions[posQuetions].img} alt="img-main"/>
+                <img src={selectTrueWord[posQuetions].img} alt="img-main"/>
                 <Replys 
-                    words={data.quetions[posQuetions].words}
+                    words={word}
+                    handleCheck={handleCheck}
                 />
             </div>
         </div>
