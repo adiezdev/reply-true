@@ -1,5 +1,4 @@
 export const selectTrueWord = [
-
             {
                 id: 'QU3S01',
                 img: 'https://img.icons8.com/color/240/000000/car--v2.png',
@@ -41,7 +40,7 @@ export const selectTrueWord = [
                 }]       
             },
             {
-                id: 'QU3S04',
+                id: 'QU3S03',
                 img: 'https://img.icons8.com/color/240/000000/sphere.png',
                 words: [
                 {
@@ -59,5 +58,45 @@ export const selectTrueWord = [
                     word: 'Perlar',
                     status: false
                 }]       
-            }    
+            },
+            {
+                id: 'QU3S04',
+                img: 'https://img.icons8.com/emoji/240/000000/curly-hair.png',
+                words: [
+                {
+                    id: 'word10',
+                    word: 'Peluta',
+                    status: false
+                },
+                {
+                    id: 'word11',
+                    word: 'Petula',
+                    status: false
+                },
+                {
+                    id: 'word12',
+                    word: 'Peluca',
+                    status: true
+                }]       
+            },
+            {
+                id: 'QU3S05',
+                img: 'https://img.icons8.com/color/240/000000/parrot.png',
+                words: [
+                {
+                    id: 'word13',
+                    word: 'Papagayo',
+                    status: true
+                },
+                {
+                    id: 'word14',
+                    word: 'Papayago',
+                    status: false
+                },
+                {
+                    id: 'word15',
+                    word: 'Papayoga',
+                    status: false
+                }]       
+            }
 ]

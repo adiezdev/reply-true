@@ -1,14 +1,16 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, {  useReducer, useState } from 'react'
 import { selectTrueWord } from '../data/select-true-word';
 import Replys from './Replys';
 import '../styles/styles.scss';
 import { checkReducer } from '../reducers/checkReducer';
+import { useIncrement } from '../hooks/useIncrement';
 
 
 function QuestionScreen() {
 
-    const [posQuetions, setPosQuetions] = useState(0) 
-    const {words , img} =selectTrueWord[posQuetions]
+    const {counter , increment} = useIncrement(0)
+    const {words , img} =selectTrueWord[counter]
+
     const init = () =>{
         return words || []
     }
@@ -23,11 +25,11 @@ function QuestionScreen() {
         dispatch(action)
 
         setTimeout(() => {
+            increment()
 
-            setPosQuetions(+1)
             const action = {
                 type: 'change',
-                payload: selectTrueWord[posQuetions+1].words,
+                payload: selectTrueWord[counter+1].words,
             }
             dispatch(action)
 
