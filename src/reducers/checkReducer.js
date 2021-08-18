@@ -9,6 +9,9 @@ export const checkReducer = (state = [] , action) => {
                         ? { ...true_words, done: !true_words.done }
                         : true_words     
                 )      
+        case 'change':
+                return action.payload 
+                      
         default:
             return state;
     }

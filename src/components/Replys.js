@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Replys({words, handleCheck}) {
-  
     return (
         <div className="replys">
            {

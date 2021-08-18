@@ -8,38 +8,39 @@ import { checkReducer } from '../reducers/checkReducer';
 function QuestionScreen() {
 
     const [posQuetions, setPosQuetions] = useState(0) 
-
-    const [word, setWord] = useState(selectTrueWord[posQuetions].words)
-
+    const {words , img} =selectTrueWord[posQuetions]
     const init = () =>{
-        return word || []
+        return words || []
     }
-
     const [true_word, dispatch] = useReducer(checkReducer, [], init)
 
-
-    useEffect(() => {
-        console.log(true_word);
-        //setWord(true_word)
-        setWord(selectTrueWord[posQuetions].words)
-    }, [true_word,posQuetions])
     
-
     const handleCheck = (wordId) =>{
         const action = {
             type: 'toggle',
             payload: wordId,
         }
         dispatch(action)
-        setPosQuetions(+1)
+
+        setTimeout(() => {
+
+            setPosQuetions(+1)
+            const action = {
+                type: 'change',
+                payload: selectTrueWord[posQuetions+1].words,
+            }
+            dispatch(action)
+
+        }, 150);
     }
+
     return (
         <div className="main-quest">
             <div>
                 <h3>Elige la palabra correcta</h3>
-                <img src={selectTrueWord[posQuetions].img} alt="img-main"/>
+                <img src={img} alt="img-main"/>
                 <Replys 
-                    words={word}
+                    words={true_word}
                     handleCheck={handleCheck}
                 />
             </div>
