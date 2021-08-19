@@ -4,6 +4,7 @@ import Replys from './Replys';
 import '../styles/styles.scss';
 import { checkReducer } from '../reducers/checkReducer';
 import { useIncrement } from '../hooks/useIncrement';
+import { Countdown } from './Countdown';
 
 
 function QuestionScreen() {
@@ -45,6 +46,8 @@ function QuestionScreen() {
                     words={true_word}
                     handleCheck={handleCheck}
                 />
+                <br/>
+                <Countdown/>
             </div>
         </div>
     )
