@@ -5,7 +5,7 @@ export const StartScreen = () => {
 
     return (
         <div> 
-            <Link to="/hola">
+            <Link to="/questions">
                 <button>
                     ¡VAMOS!
                 </button>             

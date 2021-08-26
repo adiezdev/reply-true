@@ -17,7 +17,7 @@ export const Countdown = ({handleIncrement}) => {
         
     }, [])
     //auto pause
-    if (num === 0){
+    if (num <= 0){
         handleIncrement()
         setNum(3)
     }

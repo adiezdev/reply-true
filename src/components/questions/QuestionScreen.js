@@ -1,14 +1,15 @@
-import React, {  useReducer, useState } from 'react'
-import { selectTrueWord } from '../data/select-true-word';
+import React, {  useReducer } from 'react'
+import { selectTrueWord } from '../../data/select-true-word';
 import Replys from './Replys';
-import '../styles/styles.scss';
-import { checkReducer } from '../reducers/checkReducer';
-import { useIncrement } from '../hooks/useIncrement';
+import '../../styles/styles.scss';
+import { checkReducer } from '../../reducers/checkReducer';
+import { useIncrement } from '../../hooks/useIncrement';
 import { Countdown } from './Countdown';
+import {        useHistory} from 'react-router-dom';
 
 
 function QuestionScreen() {
-
+       const history =  useHistory()
     const {counter , increment} = useIncrement(0)
     const {words , img} =selectTrueWord[counter]
 
@@ -24,25 +25,33 @@ function QuestionScreen() {
             payload: wordId,
         }
         dispatch(action)
+
         handleIncrement()
 
     }
     const handleIncrement =() =>{
         setTimeout(() => {
-            increment()
+            if(selectTrueWord[counter+1]!== undefined){
+                increment()
 
-            const action = {
-                type: 'change',
-                payload: selectTrueWord[counter+1].words,
+                const action = {
+                    type: 'change',
+                    payload: selectTrueWord[counter+1].words,
+                }
+                dispatch(action)
+            }else{
+                history.push('/')
             }
-            dispatch(action)
-
         }, 150);
     }
+
     return (
         <div className="main-quest">
             <div>
                 <h3>Elige la palabra correcta</h3>
+                <div>
+                    <button>X</button>
+                </div>
                 <img src={img} alt="img-main"/>
                 <Replys 
                     words={true_word}
