@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-export const Countdown = () => {
+export const Countdown = ({handleIncrement}) => {
 
     const [num, setNum] = useState(3)
     
@@ -17,7 +17,10 @@ export const Countdown = () => {
         
     }, [])
     //auto pause
-    if (num === 0)setInterval(decreasNum, 1000);
+    if (num === 0){
+        handleIncrement()
+        setNum(3)
+    }
 
     return (
         <div>

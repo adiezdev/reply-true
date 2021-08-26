@@ -24,7 +24,10 @@ function QuestionScreen() {
             payload: wordId,
         }
         dispatch(action)
+        handleIncrement()
 
+    }
+    const handleIncrement =() =>{
         setTimeout(() => {
             increment()
 
@@ -36,7 +39,6 @@ function QuestionScreen() {
 
         }, 150);
     }
-
     return (
         <div className="main-quest">
             <div>
@@ -47,7 +49,9 @@ function QuestionScreen() {
                     handleCheck={handleCheck}
                 />
                 <br/>
-                <Countdown/>
+                <Countdown
+                    handleIncrement={handleIncrement}
+                />
             </div>
         </div>
     )

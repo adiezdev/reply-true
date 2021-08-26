@@ -1,10 +1,10 @@
 import React from 'react'
-import QuestionScreen from './components/QuestionScreen'
+import { AppRouter } from './routers/AppRouter';
 
 function App() {
   return (
     <main>
-      <QuestionScreen/>
+      <AppRouter />
     </main>
   )
 }
