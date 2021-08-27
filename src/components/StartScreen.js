@@ -5,11 +5,13 @@ export const StartScreen = () => {
 
     return (
         <div> 
-            <Link to="/questions">
-                <button>
+           
+                <button
+                    className="start_button"
+                >
                     ¡VAMOS!
                 </button>             
-            </Link>
+          
         </div>
     )
 }
