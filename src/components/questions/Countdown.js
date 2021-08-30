@@ -1,21 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 
-export const Countdown = ({handleIncrement}) => {
+export const Countdown = ({handleIncrement, num, setNum}) => {
 
-    const [num, setNum] = useState(3)
-    
     let intervalRef = useRef()
-    
-    const decreasNum = () => {
-        setNum((prev) => prev -1)
-    }
     
     useEffect(() => {
         
+        const decreasNum = () => {
+            setNum((prev) => prev -1)
+        }
+
         intervalRef.current = setInterval(decreasNum, 1000);
         return () => clearInterval( intervalRef.current)
         
-    }, [])
+    }, [setNum])
     //auto pause
     if (num <= 0){
         handleIncrement()
