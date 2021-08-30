@@ -8,7 +8,7 @@ import { Countdown } from './Countdown';
 import {useHistory} from 'react-router-dom';
 
 
-function QuestionScreen() {
+export const  QuestionScreen = () => {
     const [num, setNum] = useState(3)
 
     const history =  useHistory()
@@ -70,5 +70,3 @@ function QuestionScreen() {
         </div>
     )
 }
-
-export default QuestionScreen;
