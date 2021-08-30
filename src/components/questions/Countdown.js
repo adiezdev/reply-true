@@ -22,7 +22,7 @@ export const Countdown = ({handleIncrement, num, setNum}) => {
 
     return (
         <div>
-            <div>00:0{num}</div>
+            <h1>00:0{num}</h1>
         </div>
     )
 }
